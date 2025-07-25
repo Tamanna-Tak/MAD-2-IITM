@@ -112,7 +112,7 @@ def reminder_via_email():
 def chat_reminder():
     from json import dumps
     """Google Chat incoming webhook quickstart."""
-    url = "https://chat.googleapis.com/v1/spaces/AAAA2zpkWdk/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=0Tfv6fB0imdo-e8-2VKt3b9Si-Wre_QRywxAS-mPDl4"
+    url = os.getenv("GOOGLE_CHAT_WEBHOOK_URL")
     # users =User.query.filter(User.roles.any(name='user'),User.login_time < (datetime.utcnow() - timedelta(minutes=1))).all()
     users =User.query.filter(User.roles.any(name='user'),User.login_time < (datetime.utcnow() - timedelta(minutes=1))).all()
     # users =User.query.all()
